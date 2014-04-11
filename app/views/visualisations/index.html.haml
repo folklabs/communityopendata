@@ -1,0 +1,19 @@
+%h1 Visualisations
+
+.controls
+  .btn.btn-success
+    = link_to 'New Visualisation', new_visualisation_path
+
+- @visualisations.each do |visualisation|
+  .panel.panel-success.viz
+    .panel-heading
+      .panel-title
+        %a= link_to visualisation.name, visualisation
+    / # %td= link_to 'Show', visualisation
+    .panel-body
+      .alert.alert-warning placeholder
+    .panel-footer
+      %td= link_to 'Edit', edit_visualisation_path(visualisation)
+      %td= link_to 'Destroy', visualisation, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
